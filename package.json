@@ -1,0 +1,31 @@
+{
+  "name": "decidim-module-survey_results",
+  "version": "1.0.0",
+  "description": "This module enables the admins to show survey results to participants though a new survey results page.",
+  "main": "index.js",
+  "dependencies": {
+    "@hotwired/stimulus": "^3.0.1",
+    "@hotwired/turbo-rails": "^7.1.1"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodiTramuntana/decidim-module-survey_results.git"
+  },
+  "keywords": [
+    "decidim",
+    "module",
+    "surveys"
+  ],
+  "author": "Oliver Valls",
+  "license": "SEE LICENSE IN LICENSE-AGPLv3.txt",
+  "bugs": {
+    "url": "https://github.com/CodiTramuntana/decidim-module-survey_results/issues"
+  },
+  "homepage": "https://github.com/CodiTramuntana/decidim-module-survey_results#readme"
+}

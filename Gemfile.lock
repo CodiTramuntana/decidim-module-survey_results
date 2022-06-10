@@ -179,6 +179,8 @@ PATH
       decidim-core (= 0.26.1)
       decidim-forms (= 0.26.1)
       decidim-surveys (= 0.26.1)
+      stimulus-rails
+      turbo-rails
 
 GEM
   remote: https://rubygems.org/
@@ -688,6 +690,8 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     ssrf_filter (1.0.7)
+    stimulus-rails (1.0.4)
+      railties (>= 6.0.0)
     system_test_html_screenshots (0.2.0)
       actionpack (>= 5.2, < 6.1.a)
     temple (0.8.2)
@@ -697,6 +701,10 @@ GEM
     thread_safe (0.3.6)
     tilt (2.0.10)
     tomlrb (2.0.3)
+    turbo-rails (1.1.1)
+      actionpack (>= 6.0.0)
+      activejob (>= 6.0.0)
+      railties (>= 6.0.0)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
     uber (0.1.0)
