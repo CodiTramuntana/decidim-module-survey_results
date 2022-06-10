@@ -179,6 +179,7 @@ PATH
       decidim-core (= 0.26.1)
       decidim-forms (= 0.26.1)
       decidim-surveys (= 0.26.1)
+      deface
 
 GEM
   remote: https://rubygems.org/
@@ -329,6 +330,12 @@ GEM
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
     declarative-option (0.1.0)
+    deface (1.9.0)
+      actionview (>= 5.2)
+      nokogiri (>= 1.6)
+      polyglot
+      railties (>= 5.2)
+      rainbow (>= 2.1.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     devise (4.8.1)
@@ -526,6 +533,7 @@ GEM
     pg_search (2.3.6)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
+    polyglot (0.3.5)
     premailer (1.16.0)
       addressable
       css_parser (>= 1.6.0)
@@ -763,7 +771,7 @@ DEPENDENCIES
   web-console (~> 4.0)
 
 RUBY VERSION
-   ruby 3.0.2p107
+   ruby 2.7.5p203
 
 BUNDLED WITH
    2.3.15

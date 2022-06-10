@@ -11,12 +11,17 @@ module Decidim
 
       routes do
         # Add engine routes here
-        # resources :survey_results
-        # root to: "survey_results#index"
+        resources :survey_results, only: :index
       end
 
       initializer "SurveyResults.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
+      end
+
+      initializer 'survey_results.mount_routes' do |_app|
+        Decidim::Core::Engine.routes do
+          mount Decidim::SurveyResults::Engine => '/survey_results'
+        end
       end
     end
   end
