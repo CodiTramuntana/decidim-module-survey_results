@@ -4,7 +4,6 @@ module Decidim
   module SurveyResults
     # This is the engine that runs on the public interface of `SurveyResults`.
     class AdminEngine < ::Rails::Engine
-      isolate_namespace Decidim::SurveyResults::Admin
 
       paths["db/migrate"] = nil
       paths["lib/tasks"] = nil
