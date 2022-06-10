@@ -175,8 +175,10 @@ GIT
 PATH
   remote: .
   specs:
-    decidim-survey_results (0.26.1)
+    decidim-survey_results (0.0.1)
       decidim-core (= 0.26.1)
+      decidim-forms (= 0.26.1)
+      decidim-surveys (= 0.26.1)
 
 GEM
   remote: https://rubygems.org/
