@@ -4,8 +4,9 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
+gemspec
+
 gem "decidim", git: "https://github.com/decidim/decidim", tag: "v0.26.1"
-gem "decidim-survey_results", path: "."
 
 gem "puma", ">= 4.3"
 gem "bootsnap", "~> 1.4"
