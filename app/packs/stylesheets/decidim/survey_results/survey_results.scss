@@ -1,1 +1,18 @@
 /* css for decidim_survey_results */
+.survey-results-wrapper {
+  .section-heading {
+    padding-top: 24px;
+  }
+
+  .charts-wrapper {
+    padding: 0 200px;
+  }
+
+  .total-answers {
+    text-transform: uppercase;
+  }
+
+  canvas {
+    width: 200px;
+  }
+}
