@@ -1,1 +1,10 @@
 /* css for decidim_survey_results */
+.survey-results-wrapper {
+  .section-heading {
+    padding-top: 24px;
+  }
+
+  canvas {
+    width: 200px;
+  }
+}

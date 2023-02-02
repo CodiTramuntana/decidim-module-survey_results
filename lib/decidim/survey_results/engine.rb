@@ -2,6 +2,7 @@
 
 require "rails"
 require "decidim/core"
+require_relative "extend_components"
 
 module Decidim
   module SurveyResults
@@ -14,7 +15,7 @@ module Decidim
         resources :survey_results, only: :index
       end
 
-      initializer "SurveyResults.webpacker.assets_path" do
+      initializer "survey_results.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
