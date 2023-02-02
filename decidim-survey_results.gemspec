@@ -18,11 +18,11 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-core", Decidim::SurveyResults.min_decidim_version
-  s.add_dependency "decidim-forms", Decidim::SurveyResults.min_decidim_version
-  s.add_dependency "decidim-surveys", Decidim::SurveyResults.min_decidim_version
+  s.add_dependency "decidim-core", ">=#{Decidim::SurveyResults.min_decidim_version}"
+  s.add_dependency "decidim-forms", ">=#{Decidim::SurveyResults.min_decidim_version}"
+  s.add_dependency "decidim-surveys", ">=#{Decidim::SurveyResults.min_decidim_version}"
   s.add_dependency "deface"
 
-  s.add_development_dependency "decidim", Decidim::SurveyResults.min_decidim_version
-  s.add_development_dependency "decidim-dev", Decidim::SurveyResults.min_decidim_version
+  s.add_development_dependency "decidim", ">=#{Decidim::SurveyResults.min_decidim_version}"
+  s.add_development_dependency "decidim-dev", ">=#{Decidim::SurveyResults.min_decidim_version}"
 end

@@ -6,3 +6,7 @@ en:
         settings:
           global:
             enable_active_results: Publicar automáticamente los resultados
+    survey_results:
+      survey_results:
+        index:
+          num_answers: Number of answers
