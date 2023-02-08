@@ -1,0 +1,10 @@
+ca:
+  decidim:
+    survey_results:
+      survey_results:
+        countable_answer:
+          table:
+            answered: Han respost
+            quantity: Quantitat
+            not_answered: No han respost
+            percentage: Percentatge

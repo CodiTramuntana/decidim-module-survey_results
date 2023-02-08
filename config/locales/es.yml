@@ -6,3 +6,11 @@ es:
         settings:
           global:
             enable_active_results: Publicar automáticamente los resultados
+    survey_results:
+      survey_results:
+        countable_answer:
+          table:
+            answered: Han respondido
+            quantity: Cantidad
+            not_answered: No han respondido
+            percentage: Porcentaje

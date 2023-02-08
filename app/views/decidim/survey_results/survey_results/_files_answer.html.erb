@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= t("decidim.survey_results.survey_results.countable_answer.table.percentage") %></th>
+      <th><%= t("decidim.survey_results.survey_results.countable_answer.table.quantity") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= t("decidim.survey_results.survey_results.countable_answer.table.answered") %></td>
+      <td><%= total_anwers_files_answered_percentage(question) %></td>
+      <td><%= total_answers_files_count(question)[:with_attachments] %></td>
+    </tr>
+    <tr>
+      <td><%= t("decidim.survey_results.survey_results.countable_answer.table.not_answered") %></td>
+      <td><%= total_anwers_files_not_answered_percentage(question) %></td>
+      <td><%= total_answers_files_count(question)[:without_attachments] %></td>
+    </tr>
+  </tbody>
+</table>

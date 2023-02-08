@@ -28,7 +28,7 @@
 <%= javascript_pack_tag "decidim_core", defer: false %>
 
 <%= javascript_pack_tag "decidim_survey_results", defer: false %>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.1/dist/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <%= render partial: "layouts/decidim/head_extra" %>
 <%== current_organization.header_snippets if Decidim.enable_html_header_snippets %>

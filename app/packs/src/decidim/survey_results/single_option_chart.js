@@ -15,15 +15,9 @@ $(()=> {
       }]
     },
     options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: 'top',
-        },
-      },
       scales: {
         y: {
-          min: 0,
+          beginAtZero: true,
           ticks: {
             stepSize: 1
           }

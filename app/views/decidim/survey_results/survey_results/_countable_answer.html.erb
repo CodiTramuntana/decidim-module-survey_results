@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= t(".table.percentage") %></th>
+      <th><%= t(".table.quantity") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= t(".table.answered") %></td>
+      <td><%= total_answers_answered_percentage(question) %></td>
+      <td><%= total_countable_answers_count(question) %></td>
+    </tr>
+    <tr>
+      <td><%= t(".table.not_answered") %></td>
+      <td><%= total_answers_not_answered_percentage(question) %></td>
+      <td><%= @participants.count - total_countable_answers_count(question) %></td>
+    </tr>
+  </tbody>
+</table>
