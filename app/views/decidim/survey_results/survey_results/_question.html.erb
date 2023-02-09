@@ -5,9 +5,8 @@
         <h3><%= translated_attribute question.body %><h3>
       </div>
       <div class="answers-chart">
-        <% if question.question_type == "single_option" %>
-          <%= render partial: "single_option", locals: { question: question } %>
-          <%= render partial: "results_table", locals: { question: question } %>
+        <% if %w(single_option multiple_option).include?(question.question_type) %>
+          <%= render partial: "simple_options_question", locals: { question: question } %>
         <% elsif %w(short_answer long_answer).include?(question.question_type) %>
           <%= render partial: "countable_answer", locals: { question: question } %>
         <% elsif question.question_type == "files" %>

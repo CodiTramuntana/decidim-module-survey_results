@@ -10,7 +10,9 @@ module Decidim
                     :question_answer_data,
                     :question_answers,
                     :total_countable_answers_count,
-                    :total_answers_files_count
+                    :total_answers_files_count,
+                    :total_answers,
+                    :chart_question
 
       def index
         @questions = Decidim::Forms::Question.where(questionnaire: questionnaire)
@@ -44,6 +46,10 @@ module Decidim
                            .where(questionnaire: questionnaire)
       end
 
+      def total_answers(question)
+        answers.where(question: question).count
+      end
+
       def question_answer_labels(question)
         question.answer_options.map do |answer_option|
           translated_attribute(answer_option.body)
@@ -52,8 +58,8 @@ module Decidim
 
       def question_answer_data(question)
         case question.question_type
-        when "single_option"
-          single_option_question(question)
+        when "single_option", "multiple_option"
+          chart_question(question)
         when "short_answer"
           questionnaire.answers.where(question: question).map do |answer|
             [
@@ -85,8 +91,22 @@ module Decidim
         total_answers_files
       end
 
-      def single_option_question(question)
-        [3,2,5]
+      def chart_question(question)
+        labels = []
+        data = []
+
+        # labels
+        question.answer_options.map do |answer_option|
+          labels << translated_attribute(answer_option.body)
+ 
+          count = 0
+          answers.where(question: question).each do |answer|
+            count += answer.choices.where(decidim_answer_option_id: answer_option.id).count
+          end
+          data << count
+        end
+
+        { labels: labels, data: data }
       end
     end
   end

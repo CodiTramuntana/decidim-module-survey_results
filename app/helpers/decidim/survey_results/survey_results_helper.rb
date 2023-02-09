@@ -19,6 +19,10 @@ module Decidim
         "#{(total_answers_files_count(question)[:without_attachments] * 100)/total_participants}%"
       end
 
+      def generic_percentage(data, total_answers)
+        "#{(data * 100)/total_answers}%"
+      end
+
       private
 
       def total_participants
