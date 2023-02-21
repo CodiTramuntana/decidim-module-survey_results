@@ -1,0 +1,24 @@
+<canvas
+  id="<%= question.question_type == 'matrix_single' ? 'single-matrix-chart' : 'multiple-matrix-chart'%>"
+  data-labels="<%= chart_question(question)[:labels] %>"
+  data-data="<%= chart_question(question)[:data] %>"
+></canvas>
+
+<% labels = multiple_chart_question(question)[:labels] %>
+<% data = multiple_chart_question(question)[:data] %>
+<table>
+  <thead>
+    <th>Valor</th>
+    <th>Porcentaje</th>
+    <th>Cantidad</th>
+  </thead>
+  <tbody>
+    <% labels.zip(data).each do |label, data| %>
+      <tr>
+        <td> <%= label %> </td>
+        <td> pepe</td>
+        <td> <%= data %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

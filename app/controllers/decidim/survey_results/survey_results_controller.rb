@@ -7,12 +7,13 @@ module Decidim
       include Decidim::SurveyResults::SurveyResultsHelper
 
       helper_method :question_answer_labels,
-                    :question_answer_data,
                     :question_answers,
                     :total_countable_answers_count,
                     :total_answers_files_count,
                     :total_answers,
-                    :chart_question
+                    :chart_question,
+                    :sorting_question,
+                    :multiple_chart_question
 
       def index
         @questions = Decidim::Forms::Question.where(questionnaire: questionnaire)
@@ -56,20 +57,6 @@ module Decidim
         end
       end
 
-      def question_answer_data(question)
-        case question.question_type
-        when "single_option", "multiple_option"
-          chart_question(question)
-        when "short_answer"
-          questionnaire.answers.where(question: question).map do |answer|
-            [
-              answer.body,
-              Decidim::Forms::AnswerChoice.where(answer: answer).count
-            ]
-          end
-        end
-      end
-
       def total_countable_answers_count(question)
         answers.where(question: question).where.not(body: "").count
       end
@@ -107,6 +94,59 @@ module Decidim
         end
 
         { labels: labels, data: data }
+      end
+
+      def multiple_chart_question(question)
+        datasets = []
+
+        labels = question.matrix_rows.map{ |row| translated_attribute(row.body) }
+
+        question.answer_options.map do |answer_option|
+          data_row = []
+          answers.where(question: question).each do |answer|
+            question.matrix_rows.each do |matrix_row|
+
+              row_choices = answer.question.answer_options.map do |answer_option|
+                answer.choices.where(matrix_row: matrix_row, answer_option: answer_option).count
+              end
+              data_row << row_choices
+            end
+          end
+        end
+
+        { labels: labels, data: datasets }
+      end
+
+      def sorting_question(question)
+        positions = question.answer_options.count
+        values = []
+        all_data = []
+
+        counts = []
+        question.answer_options.map do |answer_option|
+          values << translated_attribute(answer_option.body)
+ 
+          answers.where(question: question).each do |answer|
+            positions_count = []
+            positions.times do |position|
+              positions_count << {position: position, position_count: 0}
+            end
+
+            
+            choice = answer.choices.find_by(decidim_answer_option_id: answer_option.id)
+            position_choice = choice.position
+            data = {choice: answer_option.id, positions_count: positions_count}
+          
+            positions.times do |position|
+              if position_choice == position
+                data[:positions_count][position][:position_count] += 1
+              end
+            end
+            all_data << data
+          end
+        end
+
+        { positions: positions, values: values, data: data }
       end
     end
   end

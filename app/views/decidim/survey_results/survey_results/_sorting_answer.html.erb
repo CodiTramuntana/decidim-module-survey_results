@@ -1,0 +1,18 @@
+<% sorting_question = sorting_question(question) %>
+
+<table>
+  <thead>
+    <th>Valor</th>
+    <% sorting_question[:positions].times do |position| %>
+      <th>Posición <%= position +1  %></th>
+    <% end %>
+  </thead>
+  <tbody>
+    <% sorting_question[:values].zip(sorting_question[:data]).each do |value, data| %>
+      <tr>
+        <td> <%= value %> </td>
+        <td> <%=data%>(<%= generic_percentage(data, total_answers(question)) %>)</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
