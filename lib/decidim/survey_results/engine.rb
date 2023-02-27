@@ -2,7 +2,6 @@
 
 require "rails"
 require "decidim/core"
-require_relative "extend_components"
 
 module Decidim
   module SurveyResults
@@ -12,7 +11,11 @@ module Decidim
 
       routes do
         # Add engine routes here
-        resources :survey_results, only: :index
+        get ":component_id/survey_results", to: "survey_results#show"
+      end
+
+      initializer "survey_results.extend_surveys" do
+        require "decidim/survey_results/extend_components"
       end
 
       initializer "survey_results.webpacker.assets_path" do
@@ -21,7 +24,7 @@ module Decidim
 
       initializer 'survey_results.mount_routes' do |_app|
         Decidim::Core::Engine.routes do
-          mount Decidim::SurveyResults::Engine => '/survey_results'
+          mount Decidim::SurveyResults::Engine => '/survey_results', as: "decidim_survey_results"
         end
       end
     end

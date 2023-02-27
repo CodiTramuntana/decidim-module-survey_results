@@ -5,7 +5,7 @@ es:
       surveys:
         settings:
           global:
-            enable_active_results: Publicar automáticamente los resultados
+            enable_results: Publicar automáticamente los resultados
     survey_results:
       survey_results:
         countable_answer:

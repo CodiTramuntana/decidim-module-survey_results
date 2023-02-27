@@ -2,7 +2,6 @@
 
 require "decidim/survey_results/engine"
 require "decidim/survey_results/admin_engine"
-require "decidim/survey_results/extend_components"
 
 module Decidim
   # This namespace holds the logic of the `SurveyResults` component. This component

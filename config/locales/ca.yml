@@ -1,10 +1,23 @@
 ca:
   decidim:
+    components:
+      surveys:
+        settings:
+          global:
+            enable_results: Publica els resultats a l'acabar l'enquesta
     survey_results:
       survey_results:
+        show:
+          num_answers: Number of answers
         countable_answer:
           table:
             answered: Han respost
             quantity: Quantitat
             not_answered: No han respost
             percentage: Percentatge
+        text_question_results:
+          table:
+            answered: Han respost
+            not_answered: No han respost
+            percentage: Percentatge
+            quantity: Quantitat

@@ -1,0 +1,12 @@
+<div class="charts-wrapper">
+  <% full_questionnaire.questions.each.with_index do |question, idx| %>
+    <div class="question-chart">
+      <div class="question-title">
+        <h3><%= translated_attribute question.position %>. <%= translated_attribute question.body %><h3>
+      </div>
+      <div class="answers-chart">
+        <%= render_question_results(full_questionnaire, question) %>
+      </div>
+    </div>
+  <% end %>
+</div>

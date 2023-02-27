@@ -1,0 +1,25 @@
+<% labels = results.chart_question[:labels] %>
+<% data = results.chart_question[:data] %>
+<canvas
+  class="<%= results.question_type %>-chart"
+  data-labels="<%= labels %>"
+  data-data="<%= data %>"
+></canvas>
+
+
+<table>
+  <thead>
+    <th>Valor</th>
+    <th>Porcentaje</th>
+    <th>Cantidad</th>
+  </thead>
+  <tbody>
+    <% labels.zip(data).each do |label, data| %>
+      <tr>
+        <td> <%= label %> </td>
+        <td> <%= results.generic_percentage(data, results.total_answers(results.question)) %>%</td>
+        <td> <%= data %> </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

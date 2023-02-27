@@ -9,13 +9,13 @@
   <tbody>
     <tr>
       <td><%= t(".table.answered") %></td>
-      <td><%= total_answers_answered_percentage(question) %></td>
-      <td><%= total_countable_answers_count(question) %></td>
+      <td><%= results.total_answers_answered_percentage %></td>
+      <td><%= results.total_countable_answers_count %></td>
     </tr>
     <tr>
       <td><%= t(".table.not_answered") %></td>
-      <td><%= total_answers_not_answered_percentage(question) %></td>
-      <td><%= @participants.count - total_countable_answers_count(question) %></td>
+      <td><%= results.total_answers_not_answered_percentage %></td>
+      <td><%= full_questionnaire.total_participants - results.total_countable_answers_count %></td>
     </tr>
   </tbody>
 </table>

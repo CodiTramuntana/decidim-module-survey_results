@@ -5,7 +5,7 @@ en:
       surveys:
         settings:
           global:
-            enable_active_results: Publicar automáticamente los resultados
+            enable_results: Show results after closing the survey
     survey_results:
       survey_results:
         index:
