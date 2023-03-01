@@ -1,17 +1,23 @@
 import { dynamicColor, generateDatasets } from "./chart_helper";
 
 $(()=> {
-  let singleOptionChart = document.getElementById('single-option-chart').getContext('2d');
-  let dataSingleOption = JSON.parse(singleOptionChart.canvas.dataset.data);
-  simpleBarsChart(singleOptionChart, dataSingleOption);
+  Array.from(document.getElementsByClassName('single_option-chart')).forEach(singleOptionChart => {
+    let chart= singleOptionChart.getContext('2d');
+    let dataSingleOption = JSON.parse(chart.canvas.dataset.data);
+    simpleBarsChart(chart, dataSingleOption);
+  });
 
-  let multipleOptionChart = document.getElementById('multiple-option-chart').getContext('2d');
-  let dataMultipleOption = JSON.parse(multipleOptionChart.canvas.dataset.data);
-  simpleBarsChart(multipleOptionChart, dataMultipleOption);
+  Array.from(document.getElementsByClassName('matrix_multiple-chart')).forEach(matrixMultipleChart => {
+    let chart= matrixMultipleChart.getContext('2d');
+    let dataMultipleOption = JSON.parse(chart.canvas.dataset.data);
+    simpleBarsChart(chart, dataMultipleOption);
+  });
 
-  let singleMatrixChart = document.getElementById('single-matrix-chart').getContext('2d');
-  let dataSingleMatrix = JSON.parse(singleMatrixChart.canvas.dataset.data);
-  multipleBarsChart(singleMatrixChart, dataSingleMatrix);
+  Array.from(document.getElementsByClassName('matrix_single-chart')).forEach(matrixSingleChart => {
+    let chart= matrixSingleChart.getContext('2d');
+    let dataSingleMatrix = JSON.parse(chart.canvas.dataset.data);
+    multipleBarsChart(chart, dataSingleMatrix);
+  });
 });
 
 function simpleBarsChart(ctx, data) {
