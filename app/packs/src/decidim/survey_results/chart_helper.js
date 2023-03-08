@@ -10,14 +10,43 @@ export function dynamicColor() {
   }
 };
 
-// data = [[0,1], [1,0]]
-export function generateDatasets(labels, data) {
+export function normalizeLabels(labels) {
+  labels.forEach((label, index) => {
+    if (label.length > 28) {
+      let newLabel = splitLargeLabel(label);
+      console.log(newLabel)
+      labels[index] = newLabel
+    }
+  })
+
+  return labels;
+};
+
+function splitLargeLabel(label) {
+  let middle = Math.floor(label.length / 2);
+  let before = label.lastIndexOf(' ', middle);
+  let after = label.indexOf(' ', middle + 1);
+
+  if (middle - before < after - middle) {
+    middle = before;
+  } else {
+    middle = after;
+  }
+
+  return [label.substr(0, middle), label.substr(middle + 1)];
+}
+
+export function generateDatasets(data) {
   let datasets = [];
 
-  console.log(labels)
-  labels.forEach((label, index) => {
+  let labels = data.first
+  console.log(data[0])
+  console.log("primer data")
+  data.forEach((data, index) => {
+    console.log("DATA")
+    console.log(data)
     let dataset = {
-      label: label,
+      label: "perico",
       data: data[0][index],
       backgroundColor: dynamicColor(),
       borderWidth: 1,

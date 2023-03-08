@@ -1,16 +1,23 @@
----
 es:
   decidim:
     components:
       surveys:
         settings:
           global:
-            enable_results: Publicar automáticamente los resultados
+            enable_results: Publica los resultados al acabar la encuesta
     survey_results:
       survey_results:
+        show:
+          num_answers: Number of answers
         countable_answer:
           table:
-            answered: Han respondido
-            quantity: Cantidad
-            not_answered: No han respondido
+            answered: Han respost
+            quantity: Quantitat
+            not_answered: No han respost
             percentage: Porcentaje
+        text_question_results:
+          table:
+            answered: Han respost
+            not_answered: No han respost
+            percentage: Porcentaje
+            quantity: Quantitat
