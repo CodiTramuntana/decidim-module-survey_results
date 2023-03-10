@@ -10,7 +10,7 @@ $(()=> {
   Array.from(document.getElementsByClassName('multiple_option-chart')).forEach(canvas => {
     let chart = canvas.getContext('2d');
     let datasets = JSON.parse(chart.canvas.dataset.data);
-    simpleBarsChart(chart, datasets);
+    simpleBarsChart(chart, datasets[0]);
   });
 
   Array.from(document.getElementsByClassName('matrix_multiple-chart')).forEach(canvas => {
@@ -52,7 +52,7 @@ function simpleBarsChart(ctx, dataset) {
     data: {
       labels: normalizeLabels(JSON.parse(ctx.canvas.dataset.labels)),
       datasets: [{
-        label: 'Number of Votes',
+        label: dataset['label'],
         data: dataset['data'],
         backgroundColor: dynamicColor(),
         borderWidth: 1,
