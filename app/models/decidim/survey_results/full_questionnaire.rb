@@ -15,7 +15,7 @@ module Decidim
       end
 
       def questions
-        @questions ||= Decidim::Forms::Question.where(questionnaire: questionnaire).order(:position, :id)
+        @questions ||= Decidim::Forms::Question.includes([:matrix_rows, :answer_options]).where(questionnaire: questionnaire).order(:position, :id)
       end
 
       def participants
@@ -28,8 +28,6 @@ module Decidim
                            .joins(:question)
                            .where(questionnaire: questionnaire)
       end
-
-        # @num_answers= @questions.first.answers_count
 
       def total_participants
         @total_participants||= participants.count

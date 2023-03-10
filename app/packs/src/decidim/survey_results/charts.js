@@ -1,6 +1,14 @@
 import { dynamicColor, generateDatasets, normalizeLabels } from "./chart_helper";
 
 $(()=> {
+  Array.from(document.getElementsByClassName('short_answer-chart')).concat(
+    Array.from(document.getElementsByClassName('long_answer-chart'))
+  ).forEach(canvas => {
+    let chart = canvas.getContext('2d');
+    let dataset = JSON.parse(chart.canvas.dataset.dataset);
+    pieChart(chart, dataset);
+  });
+
   Array.from(document.getElementsByClassName('single_option-chart')).forEach(canvas => {
     let chart = canvas.getContext('2d');
     let datasets = JSON.parse(chart.canvas.dataset.data);
@@ -67,6 +75,16 @@ function simpleBarsChart(ctx, dataset) {
           }
         }
       }
+    }
+  });
+}
+
+function pieChart(ctx, dataset) {
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: normalizeLabels(JSON.parse(ctx.canvas.dataset.labels)),
+      datasets: [dataset]
     }
   });
 }

@@ -6,17 +6,18 @@ module Decidim
       include Decidim::TranslatableAttributes
 
       def self.for(full_questionnaire, question)
-        if %w(single_option multiple_option).include?(question.question_type)
+        case question.question_type
+        when 'single_option', 'multiple_option'
           OptionsQuestionResults.new(full_questionnaire, question)
-        elsif %w(short_answer long_answer).include?(question.question_type)
+        when 'short_answer', 'long_answer'
           TextQuestionResults.new(full_questionnaire, question)
-        elsif question.question_type == "files"
+        when "files"
           FilesQuestionResults.new(full_questionnaire, question)
-        elsif question.question_type == "matrix_single"
+        when "matrix_single"
           MatrixQuestionResults.new(full_questionnaire, question)
-        elsif question.question_type == "matrix_multiple"
+        when "matrix_multiple"
           MatrixQuestionResults.new(full_questionnaire, question)
-        elsif question.question_type == "sorting"
+        when "sorting"
           SortingQuestionResults.new(full_questionnaire, question)
         end
       end

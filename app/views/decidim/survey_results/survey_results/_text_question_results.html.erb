@@ -1,3 +1,9 @@
+<canvas
+  class="<%= results.question_type %>-chart"
+  data-labels="<%= labels %>"
+  data-dataset="<%= datasets.first.to_json %>"
+></canvas>
+
 <table>
   <thead>
     <tr>
@@ -9,13 +15,13 @@
   <tbody>
     <tr>
       <td><%= t(".table.answered") %></td>
-      <td><%= results.total_answers_answered_percentage %></td>
-      <td><%= results.total_countable_answers_count %></td>
+      <td><%= results.answered_percentage %>%</td>
+      <td><%= results.answered_count %></td>
     </tr>
     <tr>
       <td><%= t(".table.not_answered") %></td>
-      <td><%= results.total_answers_not_answered_percentage %></td>
-      <td><%= full_questionnaire.total_participants - results.total_countable_answers_count %></td>
+      <td><%= results.not_answered_percentage %>%</td>
+      <td><%= results.not_answered_count %></td>
     </tr>
   </tbody>
 </table>

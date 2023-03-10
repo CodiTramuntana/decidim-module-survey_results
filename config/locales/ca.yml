@@ -7,20 +7,24 @@ ca:
             enable_results: Publica els resultats a l'acabar l'enquesta
     survey_results:
       survey_results:
-        show:
-          num_answers: Number of answers
         countable_answer:
           table:
             answered: Han respost
             quantity: Quantitat
             not_answered: No han respost
             percentage: Percentatge
+        questions:
+          question: Pregunta
         text_question_results:
           table:
             answered: Han respost
             not_answered: No han respost
             percentage: Percentatge
             quantity: Quantitat
+        show:
+          num_participants: Un total de %{count} usuaris han respost l'enquesta
   survey_results:
     question_results:
       number_of_votes: Nombre de vots
+      answered: Han respost
+      not_answered: No han respost

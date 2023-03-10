@@ -18,7 +18,7 @@ module Decidim
       end
 
       def results
-        @results||= chart_question
+        @results||= compute_results
       end
 
       #-----------------------------------------------
@@ -27,7 +27,7 @@ module Decidim
 
       #-----------------------------------------------
 
-      def chart_question
+      def compute_results
         user_question_answers= full_questionnaire.answers
         choices_sums= Decidim::Forms::AnswerChoice.where("decidim_answer_id IN (#{user_question_answers.select(:id).where(question: question).to_sql})").group(:decidim_answer_option_id).count
 
