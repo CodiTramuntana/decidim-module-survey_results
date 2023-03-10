@@ -40,28 +40,11 @@ module Decidim
         (data * 100)/total_answers
       end
 
-      def question_answer_labels(question)
-        question.answer_options.map do |answer_option|
-          translated_attribute(answer_option.body)
-        end
-      end
-
-      def total_answers_files_count(question)
-        total_answers_files = {
-          with_attachments: 0,
-          without_attachments: 0
-        }
-        
-        full_questionnaire.answers.where(question: question).each do |answer|
-          if answer.attachments.present?
-            total_answers_files[:with_attachments] += 1
-          else
-            total_answers_files[:without_attachments] += 1
-          end
-        end
-
-        total_answers_files
-      end
+      # def question_answer_labels
+      #   question.answer_options.map do |answer_option|
+      #     translated_attribute(answer_option.body)
+      #   end
+      # end
     end
   end
 end
