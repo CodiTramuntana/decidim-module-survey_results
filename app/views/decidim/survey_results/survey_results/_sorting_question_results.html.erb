@@ -11,7 +11,7 @@
     <% sorting_question[:values].zip(sorting_question[:data]).each do |value, data| %>
       <tr>
         <td> <%= value %> </td>
-        <td> <%=data%>(<%= generic_percentage(data, total_answers(question)) %>)</td>
+        <td> <%=data%>(<%= results.answers_percentage(data) %>)</td>
       </tr>
     <% end %>
   </tbody>

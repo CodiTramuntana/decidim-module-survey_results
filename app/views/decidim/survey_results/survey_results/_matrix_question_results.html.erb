@@ -1,23 +1,25 @@
-<% labels = results.multiple_chart_question[:labels] %>
-<% data = results.multiple_chart_question[:data] %>
+<% labels = results.x_labels %>
+<% datasets = results.results[:datasets] %>
 <canvas
   class="<%= results.question_type %>-chart"
   data-labels="<%= labels %>"
-  data-data="<%= data %>"
+  data-data="<%= datasets.to_json %>"
 ></canvas>
 
 <table>
   <thead>
     <th>Valor</th>
-    <th>Porcentaje</th>
-    <th>Cantidad</th>
+    <% datasets.each do |ds| %>
+      <th><%= ds[:label] %></th>
+    <% end -%>
   </thead>
   <tbody>
-    <% labels.zip(data).each do |label, data| %>
+    <% labels.each_with_index do |label, idx| %>
       <tr>
-        <td> <%= label %> </td>
-        <td> pepe</td>
-        <td> <%= data %> </td>
+        <td><%= label %></td>
+        <% datasets.each do |ds| %>
+          <td><%= ds[:data][idx] %></td>
+        <% end -%>
       </tr>
     <% end %>
   </tbody>

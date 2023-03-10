@@ -8,27 +8,62 @@ module Decidim
         super(full_questionnaire, question, "matrix_question_results")
       end
 
+      def x_labels
+        results[:labels]
+      end
+
+      # An array of hashes with two fields, label and data.
+      # Each dataset contains the results of a column in its `data` field.
+      # This is, each dataset contains and array with the count of
+      # choices on each row of the column.
+      #
+      # For example, dataset data for column A: [
+      #  1, <- one user voted A on row 1
+      #  5, <- five users voted A on row 2
+      #  3, <- three users voted A on row 3
+      # ]
+      def datasets
+        results[:datasets]
+      end
+
+      def results
+        @results ||= multiple_chart_question
+      end
+
+      #-----------------------------------------------
+
+      private
+
+      #-----------------------------------------------
+
       # question.answer_options -> columns
       # question.matrix_rows -> rows
-      # answers -> user responses
+      # answers -> each is a user response to a question
       # Answer has many choices (AnswerChoices)
+      #
+      # See the chart expected data here:
+      # https://www.chartjs.org/docs/latest/samples/bar/floating.html
       def multiple_chart_question
-        labels = question.matrix_rows.map{ |row| translated_attribute(row.body) }
+        user_question_answers= full_questionnaire.answers
+        choices_sums= Decidim::Forms::AnswerChoice.where("decidim_answer_id IN (#{user_question_answers.select(:id).where(question: question).to_sql})").group(:decidim_question_matrix_row_id, :decidim_answer_option_id).count
 
-        data_rows = []
+        # labels: appear at the x axis
+        # datasets: one dataset for the columns of each row
+        data= {
+          labels: question.matrix_rows.map {|r| translated_attribute(r.body) },
+          datasets: []
+        }
         question.answer_options.each do |answer_option|
-          full_questionnaire.answers.where(question: question).each do |answer|
-            question.matrix_rows.each do |matrix_row|
-
-              row_choices = question.answer_options.map do |answer_option|
-                answer.choices.where(matrix_row: matrix_row, answer_option: answer_option).count
-              end
-              data_rows << row_choices
-            end
+          dataset = {data: []}
+          dataset[:label]= translated_attribute(answer_option.body)
+          question.matrix_rows.each do |row|
+            key= [row.id, answer_option.id]
+            dataset[:data] << (choices_sums[key] || 0)
           end
+          data[:datasets] << dataset
         end
 
-        { labels: labels, data: data_rows }
+        data
       end
     end
   end

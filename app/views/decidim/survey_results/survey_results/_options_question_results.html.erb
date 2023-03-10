@@ -1,11 +1,10 @@
-<% labels = results.chart_question[:labels] %>
-<% data = results.chart_question[:data] %>
+<% labels = results.x_labels %>
+<% datasets = results.results[:datasets] %>
 <canvas
   class="<%= results.question_type %>-chart"
   data-labels="<%= labels %>"
-  data-data="<%= data %>"
+  data-data="<%= datasets.to_json %>"
 ></canvas>
-
 
 <table>
   <thead>
@@ -14,11 +13,11 @@
     <th>Cantidad</th>
   </thead>
   <tbody>
-    <% labels.zip(data).each do |label, data| %>
+    <% labels.zip(datasets.first[:data]).each do |label, count| %>
       <tr>
-        <td> <%= label %> </td>
-        <td> <%= results.generic_percentage(data, results.total_answers(results.question)) %>%</td>
-        <td> <%= data %> </td>
+        <td><%= label %></td>
+        <td><%= results.answers_percentage(count) %>%</td>
+        <td><%= count %></td>
       </tr>
     <% end %>
   </tbody>

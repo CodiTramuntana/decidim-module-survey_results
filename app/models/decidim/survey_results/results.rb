@@ -31,11 +31,11 @@ module Decidim
       attr :full_questionnaire
       delegate :question_type, to: :question
 
-      def total_answers(question)
-        full_questionnaire.answers.where(question: question).count
+      def total_answers
+        @total_answers||= full_questionnaire.answers.where(question: question).count
       end
 
-      def generic_percentage(data, total_answers)
+      def answers_percentage(data)
         return 0 if total_answers == 0
         (data * 100)/total_answers
       end
