@@ -16,3 +16,6 @@ en:
             quantity: Quantity
             not_answered: Not answered
             percentage: Percentage
+  survey_results:
+    question_results:
+      number_of_votes: Number of votes

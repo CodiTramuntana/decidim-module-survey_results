@@ -21,3 +21,6 @@ ca:
             not_answered: No han respost
             percentage: Percentatge
             quantity: Quantitat
+  survey_results:
+    question_results:
+      number_of_votes: Nombre de vots

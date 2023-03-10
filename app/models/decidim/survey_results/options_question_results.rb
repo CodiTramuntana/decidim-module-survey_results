@@ -32,7 +32,7 @@ module Decidim
         choices_sums= Decidim::Forms::AnswerChoice.where("decidim_answer_id IN (#{user_question_answers.select(:id).where(question: question).to_sql})").group(:decidim_answer_option_id).count
 
         x_labels = []
-        dataset = {label: 'Number of votes', data: []}
+        dataset = {label: I18n.t("survey_results.question_results.number_of_votes"), data: []}
         question.answer_options.map do |answer_option|
           x_labels << translated_attribute(answer_option.body)
 
