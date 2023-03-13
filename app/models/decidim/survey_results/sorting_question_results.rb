@@ -8,6 +8,16 @@ module Decidim
         super(full_questionnaire, question, "sorting_question_results")
       end
 
+      #---------------------------------------------------------------
+
+      private
+
+      #---------------------------------------------------------------
+
+      def compute_results
+        {labels: [], datasets: []}
+      end
+
       def sorting_question(question)
         positions = question.answer_options.count
         values = []

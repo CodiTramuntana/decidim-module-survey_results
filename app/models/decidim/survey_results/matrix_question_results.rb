@@ -8,11 +8,14 @@ module Decidim
         super(full_questionnaire, question, "matrix_question_results")
       end
 
-      def x_labels
-        results[:labels]
-      end
+      #-----------------------------------------------
 
-      # An array of hashes with two fields, label and data.
+      private
+
+      #-----------------------------------------------
+
+      # labels: data_rows body
+      # datasets: An array of hashes with two fields, label and data.
       # Each dataset contains the results of a column in its `data` field.
       # This is, each dataset contains and array with the count of
       # choices on each row of the column.
@@ -22,20 +25,8 @@ module Decidim
       #  5, <- five users voted A on row 2
       #  3, <- three users voted A on row 3
       # ]
-      def datasets
-        results[:datasets]
-      end
-
-      def results
-        @results ||= multiple_chart_question
-      end
-
-      #-----------------------------------------------
-
-      private
-
-      #-----------------------------------------------
-
+      #
+      # NOTE: Correspondence between Decidim models and the matrix
       # question.answer_options -> columns
       # question.matrix_rows -> rows
       # answers -> each is a user response to a question
@@ -43,7 +34,7 @@ module Decidim
       #
       # See the chart expected data here:
       # https://www.chartjs.org/docs/latest/samples/bar/floating.html
-      def multiple_chart_question
+      def compute_results
         user_question_answers= full_questionnaire.answers
         choices_sums= Decidim::Forms::AnswerChoice.where("decidim_answer_id IN (#{user_question_answers.select(:id).where(question: question).to_sql})").group(:decidim_question_matrix_row_id, :decidim_answer_option_id).count
 

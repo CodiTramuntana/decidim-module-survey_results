@@ -8,20 +8,6 @@ module Decidim
         super(full_questionnaire, question, "text_question_results")
       end
 
-      def x_labels
-        results[:labels]
-      end
-
-      # Returns only one dataset with the results of each column.
-      def datasets
-        results[:datasets]
-      end
-
-      def results
-        @results||= compute_results
-      end
-
-
       def answered_count
         @answered_count ||= @full_questionnaire.answers.where(question: @question).where.not(body: "").count
       end
@@ -31,11 +17,23 @@ module Decidim
       end
 
       def answered_percentage
-        @answered_percentage||= (answered_count * 100)/full_questionnaire.total_participants
+        @answered_percentage||= begin
+          if full_questionnaire.total_participants > 0
+            (answered_count * 100)/full_questionnaire.total_participants
+          else
+            0
+          end
+        end
       end
 
       def not_answered_percentage
-        @not_answered_percentage||= ((full_questionnaire.total_participants - answered_count) * 100)/full_questionnaire.total_participants
+        @not_answered_percentage||= begin
+          if full_questionnaire.total_participants > 0
+            ((full_questionnaire.total_participants - answered_count) * 100)/full_questionnaire.total_participants
+          else
+            0
+          end
+        end
       end
 
 
@@ -45,6 +43,8 @@ module Decidim
 
       #--------------------------------------------
 
+      # labels: Corresponding translation for "Answered" and "Not Answered"
+      # datasets: Returns only one dataset with the results of each column.
       def compute_results
         data= {
           labels: [

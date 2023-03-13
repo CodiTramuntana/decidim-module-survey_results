@@ -1,21 +1,9 @@
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th><%= t("decidim.survey_results.survey_results.countable_answer.table.percentage") %></th>
-      <th><%= t("decidim.survey_results.survey_results.countable_answer.table.quantity") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= t("decidim.survey_results.survey_results.countable_answer.table.answered") %></td>
-      <td><%= 1 %></td>
-      <td><%= 1 %></td>
-    </tr>
-    <tr>
-      <td><%= t("decidim.survey_results.survey_results.countable_answer.table.not_answered") %></td>
-      <td><%= 1 %></td>
-      <td><%= 1 %></td>
-    </tr>
-  </tbody>
-</table>
+<div class="answers-chart">
+  <canvas
+    class="<%= results.question_type %>-chart pie-chart"
+    data-labels="<%= labels %>"
+    data-dataset="<%= datasets.first.to_json %>"
+  ></canvas>
+</div>
+
+<%= render "answered_table", results: results %>

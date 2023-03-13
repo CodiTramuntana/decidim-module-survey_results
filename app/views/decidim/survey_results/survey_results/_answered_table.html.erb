@@ -1,0 +1,21 @@
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th><%= t(".table.percentage") %></th>
+      <th><%= t(".table.quantity") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= t(".table.answered") %></td>
+      <td><%= results.answered_percentage %>%</td>
+      <td><%= results.answered_count %></td>
+    </tr>
+    <tr>
+      <td><%= t(".table.not_answered") %></td>
+      <td><%= results.not_answered_percentage %>%</td>
+      <td><%= results.not_answered_count %></td>
+    </tr>
+  </tbody>
+</table>

@@ -32,6 +32,27 @@ module Decidim
       attr :full_questionnaire
       delegate :question_type, to: :question
 
+      def x_labels
+        results[:labels]
+      end
+
+      def datasets
+        results[:datasets]
+      end
+
+      # A Hash with the labels and datasets resulting from the current Question.
+      # In the format expected by Charts.js in the `data` json field.
+      #
+      # labels: main labels of the chart.
+      # datasets: data to be plotted.
+      def results
+        @results||= compute_results
+      end
+
+      def compute_results
+        fail NotImplementedError, "To be implemented by subclasses"
+      end
+
       def total_answers
         @total_answers||= full_questionnaire.answers.where(question: question).count
       end
@@ -40,12 +61,6 @@ module Decidim
         return 0 if total_answers == 0
         (data * 100)/total_answers
       end
-
-      # def question_answer_labels
-      #   question.answer_options.map do |answer_option|
-      #     translated_attribute(answer_option.body)
-      #   end
-      # end
     end
   end
 end

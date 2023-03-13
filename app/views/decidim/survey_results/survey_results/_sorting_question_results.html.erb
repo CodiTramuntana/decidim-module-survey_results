@@ -1,14 +1,12 @@
-<% sorting_question = sorting_question(question) %>
-
 <table>
   <thead>
     <th>Valor</th>
-    <% sorting_question[:positions].times do |position| %>
-      <th>Posición <%= position +1  %></th>
+    <% labels.each do |position| %>
+      <th>Posición <%= position  %></th>
     <% end %>
   </thead>
   <tbody>
-    <% sorting_question[:values].zip(sorting_question[:data]).each do |value, data| %>
+    <% datasets.each do |value, data| %>
       <tr>
         <td> <%= value %> </td>
         <td> <%=data%>(<%= results.answers_percentage(data) %>)</td>
