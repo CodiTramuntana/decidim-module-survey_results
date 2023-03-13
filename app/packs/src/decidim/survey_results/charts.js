@@ -1,4 +1,4 @@
-import { dynamicColor, generateDatasets, normalizeLabels } from "./chart_helper";
+import { normalizeLabels } from "./chart_helper";
 
 $(()=> {
   Array.from(document.getElementsByClassName('short_answer-chart')).concat(
@@ -62,7 +62,6 @@ function simpleBarsChart(ctx, dataset) {
       datasets: [{
         label: dataset['label'],
         data: dataset['data'],
-        backgroundColor: dynamicColor(),
         borderWidth: 1,
       }]
     },
@@ -85,26 +84,6 @@ function pieChart(ctx, dataset) {
     data: {
       labels: normalizeLabels(JSON.parse(ctx.canvas.dataset.labels)),
       datasets: [dataset]
-    }
-  });
-}
-
-function multipleBarsChart(ctx, data) {
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: normalizeLabels(JSON.parse(ctx.canvas.dataset.labels)),
-      datasets: generateDatasets(data)
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-          ticks: {
-            stepSize: 1
-          }
-        }
-      }
     }
   });
 }

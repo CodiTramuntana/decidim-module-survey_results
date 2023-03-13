@@ -1,10 +1,13 @@
 <% labels = results.x_labels %>
 <% datasets = results.results[:datasets] %>
-<canvas
-  class="<%= results.question_type %>-chart"
-  data-labels="<%= labels %>"
-  data-data="<%= datasets.to_json %>"
-></canvas>
+
+<div class="answers-chart">
+  <canvas
+    class="<%= results.question_type %>-chart"
+    data-labels="<%= labels %>"
+    data-data="<%= datasets.to_json %>"
+  ></canvas>
+</div>
 
 <table>
   <thead>

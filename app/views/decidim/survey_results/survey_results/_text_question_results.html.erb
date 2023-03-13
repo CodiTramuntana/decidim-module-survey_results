@@ -1,8 +1,10 @@
-<canvas
-  class="<%= results.question_type %>-chart"
-  data-labels="<%= labels %>"
-  data-dataset="<%= datasets.first.to_json %>"
-></canvas>
+<div class="answers-chart">
+  <canvas
+    class="<%= results.question_type %>-chart"
+    data-labels="<%= labels %>"
+    data-dataset="<%= datasets.first.to_json %>"
+  ></canvas>
+</div>
 
 <table>
   <thead>

@@ -8,7 +8,8 @@ es:
     survey_results:
       survey_results:
         show:
-          num_answers: Number of answers
+          num_answers: Número de respuestas
+          num_participants: Número de participantes
         countable_answer:
           table:
             answered: Han respost
@@ -21,3 +22,8 @@ es:
             not_answered: No han respost
             percentage: Porcentaje
             quantity: Quantitat
+  survey_results:
+    question_results:
+      number_of_votes: Número de votos
+      answered: Han respondido
+      not_answered: No han respondido
