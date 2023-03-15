@@ -10,12 +10,7 @@ en:
       survey_results:
         index:
           num_answers: Number of answers
-        countable_answer:
-          table:
-            answered: Answered
-            quantity: Quantity
-            not_answered: Not answered
-            percentage: Percentage
   survey_results:
     question_results:
       number_of_votes: Number of votes
+      position: Position %{position}

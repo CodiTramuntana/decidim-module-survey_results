@@ -8,7 +8,7 @@ $(()=> {
   ).forEach(canvas => {
     let chart = canvas.getContext('2d');
     let dataset = JSON.parse(chart.canvas.dataset.dataset);
-    pieChart(chart, dataset);
+    renderPieChart(chart, dataset);
   });
 
   Array.from(document.getElementsByClassName('single_option-chart')).forEach(canvas => {
@@ -33,6 +33,12 @@ $(()=> {
     let chart = canvas.getContext('2d');
     let datasets = JSON.parse(chart.canvas.dataset.datasets);
     renderMatrixChart(chart, datasets);
+  });
+
+  Array.from(document.getElementsByClassName('sorting-chart')).forEach(canvas => {
+    let chart = canvas.getContext('2d');
+    let datasets = JSON.parse(chart.canvas.dataset.datasets);
+    renderLinesChart(chart, datasets);
   });
 });
 
@@ -80,12 +86,22 @@ function simpleBarsChart(ctx, dataset) {
   });
 }
 
-function pieChart(ctx, dataset) {
+function renderPieChart(ctx, dataset) {
   new Chart(ctx, {
     type: 'doughnut',
     data: {
       labels: normalizeLabels(JSON.parse(ctx.canvas.dataset.labels)),
       datasets: [dataset]
+    }
+  });
+}
+
+function renderLinesChart(ctx, datasets) {
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: normalizeLabels(JSON.parse(ctx.canvas.dataset.labels)),
+      datasets: datasets
     }
   });
 }

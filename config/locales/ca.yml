@@ -19,6 +19,7 @@ ca:
           num_participants: Un total de %{count} usuaris han respost l'enquesta
   survey_results:
     question_results:
-      number_of_votes: Nombre de vots
       answered: Han respost
       not_answered: No han respost
+      number_of_votes: Nombre de vots
+      position: Posició %{position}

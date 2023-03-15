@@ -14,8 +14,24 @@ module Decidim
 
       #---------------------------------------------------------------
 
+      # labels: I18n position names, same number as available options to order.
+      # datasets: Each dataset is an Array where each item is the number of choices for the given option in that position.
       def compute_results
-        {labels: [], datasets: []}
+        user_question_answers= full_questionnaire.answers
+        choices_sums= Decidim::Forms::AnswerChoice.where("decidim_answer_id IN (#{user_question_answers.select(:id).where(question: question).to_sql})").group(:decidim_answer_option_id, :position).count
+
+        labels= []
+        datasets= []
+        positions= 0...question.answer_options.size
+        question.answer_options.each_with_index do |answer_option, idx|
+          position= idx + 1
+          labels << I18n.t("survey_results.question_results.position", position: position)
+
+          values= positions.map {|n| choices_sums[[answer_option.id, n]] || 0}
+          datasets << {label: translated_attribute(answer_option.body), data: values}
+        end
+
+        {labels: labels, datasets: datasets}
       end
 
       def sorting_question(question)
