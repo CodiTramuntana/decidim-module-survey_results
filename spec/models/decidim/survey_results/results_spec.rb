@@ -5,17 +5,12 @@ require "spec_helper"
 module Decidim::SurveyResults
   describe Results do
 
-    let(:current_organization) { create(:organization) }
-    let(:participatory_process) { create(:participatory_process, organization: current_organization) }
-    let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
+    let(:question_type) { "sorting" }
+    include_context "with questionnaire"
 
     describe "#for" do
-      let(:question) do
-        create(:questionnaire_question,
-                question_type: question_type,
-                position: 1,
-                questionnaire: questionnaire)
-      end
+      include_context "having one question"
+
       let(:results) do
         results= Results.for(FullQuestionnaire.new(questionnaire), question)
       end

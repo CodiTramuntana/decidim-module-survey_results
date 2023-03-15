@@ -5,17 +5,12 @@ require "spec_helper"
 module Decidim::SurveyResults
   describe FilesQuestionResults do
 
-    let(:current_organization) { create(:organization) }
-    let(:participatory_process) { create(:participatory_process, organization: current_organization) }
-    let(:questionnaire) { create(:questionnaire, questionnaire_for: participatory_process) }
-
-    let(:question) do
-      create(:questionnaire_question,
-              question_type: "files",
-              position: 1,
-              questionnaire: questionnaire)
-    end
+    let(:question_type) { "files" }
+    include_context "with questionnaire"
+    include_context "having one question"
+    include_context "having three answer options"
     let!(:answer_1) { create(:answer, questionnaire: questionnaire, question: question) }
+
     let!(:file_1_1) do
       test_file= upload_test_file(Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf"))
       answer_1.attachments.create!(
