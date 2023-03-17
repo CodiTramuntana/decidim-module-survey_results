@@ -1,3 +1,4 @@
+---
 es:
   decidim:
     components:
@@ -7,23 +8,19 @@ es:
             enable_results: Publica los resultados al acabar la encuesta
     survey_results:
       survey_results:
+        answered_table:
+          table:
+            answered: Han respondido
+            not_answered: No han respondido
+            percentage: Porcentaje
+            quantity: Cantidad
+        questions:
+          question: Pregunta
         show:
-          num_answers: Número de respuestas
-          num_participants: Número de participantes
-        countable_answer:
-          table:
-            answered: Han respost
-            quantity: Quantitat
-            not_answered: No han respost
-            percentage: Porcentaje
-        text_question_results:
-          table:
-            answered: Han respost
-            not_answered: No han respost
-            percentage: Porcentaje
-            quantity: Quantitat
+          num_participants: Un total de %{count} usuarios han respondido la encuesta
   survey_results:
     question_results:
-      number_of_votes: Número de votos
       answered: Han respondido
       not_answered: No han respondido
+      number_of_votes: Número de votos
+      position: Posición %{position}

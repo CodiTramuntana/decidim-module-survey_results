@@ -17,6 +17,7 @@ group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
   gem "decidim-dev", git: "https://github.com/decidim/decidim", tag: "v0.27.2"
+  gem 'i18n-tasks'
 end
 
 group :development do

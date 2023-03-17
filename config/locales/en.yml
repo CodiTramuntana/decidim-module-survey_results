@@ -8,9 +8,19 @@ en:
             enable_results: Show results after closing the survey
     survey_results:
       survey_results:
-        index:
-          num_answers: Number of answers
+        answered_table:
+          table:
+            answered: Answered
+            not_answered: Not answered
+            percentage: Percentage
+            quantity: Quantity
+        questions:
+          question: Question
+        show:
+          num_participants: A total of %{count} have answered the survey
   survey_results:
     question_results:
+      answered: Answered
+      not_answered: Not answered
       number_of_votes: Number of votes
       position: Position %{position}
