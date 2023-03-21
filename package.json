@@ -1,7 +1,8 @@
 {
   "name": "decidim-module-survey_results",
   "version": "1.0.0",
-  "description": "This module enables the admins to show survey results to participants though a new survey results page..",
+  "description": "This module enables the admins to show survey results to participants through a new survey results page.",
+  "main": "index.js",
   "directories": {
     "lib": "lib"
   },
@@ -12,8 +13,14 @@
     "type": "git",
     "url": "git+https://github.com/CodiTramuntana/decidim-module-survey_results.git"
   },
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "decidim",
+    "module",
+    "surveys",
+    "charts"
+  ],
+  "author": "Oliver Valls",
+  "license": "SEE LICENSE IN LICENSE-AGPLv3.txt",
   "bugs": {
     "url": "https://github.com/CodiTramuntana/decidim-module-survey_results/issues"
   },
