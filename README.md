@@ -1,11 +1,10 @@
 # Decidim::SurveyResults
 
-This module enables the admins to show survey results to participants though a new survey results page.
+This module enables the admins to show survey results to participants through a new survey results page.
 
 ## Usage
 
-SurveyResults will be available as a Component for a Participatory
-Space.
+SurveyResults will be available as a Component for a Participatory Space.
 
 ## Installation
 

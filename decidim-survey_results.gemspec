@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = ["199462+tramuntanal@users.noreply.github.com"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/decidim/decidim-module-survey_results"
-  s.required_ruby_version = ">= 2.7"
+  s.required_ruby_version = ">= 3.1"
 
   s.name = "decidim-survey_results"
   s.summary = "A decidim survey_results module"
@@ -18,12 +18,11 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-core", Decidim::SurveyResults.min_decidim_version
-  s.add_dependency "decidim-forms", Decidim::SurveyResults.min_decidim_version
-  s.add_dependency "decidim-surveys", Decidim::SurveyResults.min_decidim_version
-  s.add_dependency "turbo-rails", "~> 1.1.1"
-  s.add_dependency "stimulus-rails", "~> 1.0.4"
+  s.add_dependency "decidim-core", ">=#{Decidim::SurveyResults.min_decidim_version}"
+  s.add_dependency "decidim-forms", ">=#{Decidim::SurveyResults.min_decidim_version}"
+  s.add_dependency "decidim-surveys", ">=#{Decidim::SurveyResults.min_decidim_version}"
+  s.add_dependency "deface"
 
-  s.add_development_dependency "decidim", Decidim::SurveyResults.min_decidim_version
-  s.add_development_dependency "decidim-dev", Decidim::SurveyResults.min_decidim_version
+  s.add_development_dependency "decidim", ">=#{Decidim::SurveyResults.min_decidim_version}"
+  s.add_development_dependency "decidim-dev", ">=#{Decidim::SurveyResults.min_decidim_version}"
 end

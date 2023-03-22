@@ -1,1 +1,21 @@
 /* css for decidim_survey_results */
+.survey-results-wrapper {
+  .section-heading {
+    padding-top: 24px;
+  }
+
+  .answers-chart {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 18px;
+  }
+
+  canvas {
+    width: 200px;
+  }
+
+  .pie-chart {
+    width: 500px !important;
+    height: 500px !important;
+  }
+}

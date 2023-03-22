@@ -1,0 +1,26 @@
+---
+ca:
+  decidim:
+    components:
+      surveys:
+        settings:
+          global:
+            enable_results: Publica els resultats a l'acabar l'enquesta
+    survey_results:
+      survey_results:
+        answered_table:
+          table:
+            answered: Han respost
+            not_answered: No han respost
+            percentage: Percentatge
+            quantity: Quantitat
+        questions:
+          question: Pregunta
+        show:
+          num_participants: Un total de %{count} usuaris han respost l'enquesta
+  survey_results:
+    question_results:
+      answered: Han respost
+      not_answered: No han respost
+      number_of_votes: Nombre de vots
+      position: Posició %{position}

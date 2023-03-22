@@ -1,0 +1,8 @@
+<div class="survey-results-wrapper">
+  <div class="row columns">
+    <h2 class="section-heading"><%= translated_attribute @full_questionnaire.title %></h2>
+    <div class="section">
+      <h2><%= t(".num_participants", count: @full_questionnaire.total_participants) %></h2></div>
+    <%= render partial: "questions", locals: { full_questionnaire: @full_questionnaire } %>
+  </div>
+</div>

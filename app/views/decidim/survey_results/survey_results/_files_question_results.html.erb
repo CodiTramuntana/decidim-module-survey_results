@@ -1,0 +1,9 @@
+<div class="answers-chart">
+  <canvas
+    class="<%= results.question_type %>-chart pie-chart"
+    data-labels="<%= labels %>"
+    data-dataset="<%= datasets.first.to_json %>"
+  ></canvas>
+</div>
+
+<%= render "answered_table", results: results %>

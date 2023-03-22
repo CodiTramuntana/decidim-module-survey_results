@@ -1,12 +1,8 @@
 {
   "name": "decidim-module-survey_results",
   "version": "1.0.0",
-  "description": "This module enables the admins to show survey results to participants though a new survey results page.",
+  "description": "This module enables the admins to show survey results to participants through a new survey results page.",
   "main": "index.js",
-  "dependencies": {
-    "@hotwired/stimulus": "^3.0.1",
-    "@hotwired/turbo-rails": "^7.1.1"
-  },
   "directories": {
     "lib": "lib"
   },
@@ -20,7 +16,8 @@
   "keywords": [
     "decidim",
     "module",
-    "surveys"
+    "surveys",
+    "charts"
   ],
   "author": "Oliver Valls",
   "license": "SEE LICENSE IN LICENSE-AGPLv3.txt",
