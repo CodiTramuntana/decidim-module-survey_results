@@ -2,23 +2,26 @@
 
 module Decidim
   module SurveyResults
-    class SurveyResultsController < Decidim::ApplicationController
+    class SurveyResultsController < ApplicationController
       include Decidim::ApplicationHelper
       include Decidim::SurveyResults::SurveyResultsHelper
 
       def show
         @full_questionnaire = FullQuestionnaire.new(questionnaire)
-        # @num_answers= @questions.first.answers_count
+      end
+
+      def current_component
+        @current_component ||= Decidim::Component.find(params[:component_id])
+      end
+
+      def current_participatory_space
+        @current_participatory_space ||= current_component.participatory_space
       end
 
       private
 
-      def component
-        @component ||= Decidim::Component.find(params[:component_id])
-      end
-
       def survey
-         @survey ||= ::Decidim::Surveys::Survey.find_by(component: component)
+         @survey ||= ::Decidim::Surveys::Survey.find_by(component: current_component)
       end
 
       def questionnaire

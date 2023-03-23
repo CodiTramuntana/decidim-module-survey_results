@@ -11,7 +11,7 @@ module Decidim
 
       routes do
         # Add engine routes here
-        get ":component_id/survey_results", to: "survey_results#show"
+        get "survey/:component_id/results", to: "survey_results#show"
       end
 
       initializer "survey_results.extend_surveys" do
