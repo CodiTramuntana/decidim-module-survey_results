@@ -1,6 +1,7 @@
 # Decidim::SurveyResults
 
 This module enables the admins to show survey results to participants through a new survey results page.
+WARNING: This module is in Beta, use it at your own risk.
 
 ## Usage
 
