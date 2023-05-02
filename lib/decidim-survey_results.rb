@@ -1,1 +1,3 @@
-require "decidim/survey_results"
+require 'deface'
+
+require 'decidim/survey_results'
