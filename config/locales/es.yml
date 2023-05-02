@@ -24,3 +24,5 @@ es:
       not_answered: No han respondido
       number_of_votes: Número de votos
       position: Posición %{position}
+    questionnaire_show:
+      see_results: Consulta los resultados
