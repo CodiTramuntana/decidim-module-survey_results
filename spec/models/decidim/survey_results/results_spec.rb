@@ -73,6 +73,17 @@ module Decidim::SurveyResults
           expect(results.question_type).to eq(question_type)
         end
       end
+
+      context "when building a separator question type" do
+        let(:question_type) { "separator" }
+
+        it "creates the correct Response" do
+          expect(results.class).to eq(SeparatorQuestionResults)
+          expect(results.partial_name).to eq("separator_question_results")
+          expect(results.question).to eq(question)
+          expect(results.question_type).to eq(question_type)
+        end
+      end
     end
   end
 end

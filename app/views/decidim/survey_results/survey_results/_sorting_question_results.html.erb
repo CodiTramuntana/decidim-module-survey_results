@@ -1,20 +1,20 @@
 <div class="answers-chart">
   <canvas
     class="<%= results.question_type %>-chart"
-    data-labels="<%= labels %>"
-    data-datasets="<%= datasets.to_json %>"
+    data-labels="<%= results.x_labels %>"
+    data-datasets="<%= results.datasets.to_json %>"
   ></canvas>
 </div>
 
 <table>
   <thead>
     <th>Valor</th>
-    <% labels.each do |label| %>
+    <% results.x_labels.each do |label| %>
       <th><%= label %></th>
     <% end %>
   </thead>
   <tbody>
-    <% datasets.each do |dataset| %>
+    <% results.datasets.each do |dataset| %>
       <tr>
         <td><%= dataset[:label] %></td>
         <% dataset[:data].each do |value| %>
