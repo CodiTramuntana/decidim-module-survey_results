@@ -19,6 +19,8 @@ module Decidim
           MatrixQuestionResults.new(full_questionnaire, question)
         when "sorting"
           SortingQuestionResults.new(full_questionnaire, question)
+        when "separator"
+          SeparatorQuestionResults.new(full_questionnaire, question)
         end
       end
 

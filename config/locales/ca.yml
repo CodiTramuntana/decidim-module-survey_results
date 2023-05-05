@@ -24,3 +24,5 @@ ca:
       not_answered: No han respost
       number_of_votes: Nombre de vots
       position: Posició %{position}
+    questionnaire_show:
+      see_results: Consulta els resultats

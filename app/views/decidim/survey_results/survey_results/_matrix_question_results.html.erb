@@ -1,26 +1,23 @@
-<% labels = results.x_labels %>
-<% datasets = results.results[:datasets] %>
-
 <div class="answers-chart">
   <canvas
     class="<%= results.question_type %>-chart"
-    data-labels="<%= labels %>"
-    data-datasets="<%= datasets.to_json %>"
+    data-labels="<%= results.x_labels %>"
+    data-datasets="<%= results.datasets.to_json %>"
   ></canvas>
 </div>
 
 <table>
   <thead>
     <th>Valor</th>
-    <% datasets.each do |ds| %>
+    <% results.datasets.each do |ds| %>
       <th><%= ds[:label] %></th>
     <% end -%>
   </thead>
   <tbody>
-    <% labels.each_with_index do |label, idx| %>
+    <% results.x_labels.each_with_index do |label, idx| %>
       <tr>
         <td><%= label %></td>
-        <% datasets.each do |ds| %>
+        <% results.datasets.each do |ds| %>
           <td><%= ds[:data][idx] %></td>
         <% end -%>
       </tr>

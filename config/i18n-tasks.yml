@@ -113,6 +113,7 @@ ignore_unused:
 # - 'simple_form.{placeholders,hints,labels}.*'
 # - 'simple_form.{error_notification,required}.:'
 - decidim.components.surveys.settings.global.enable_results
+- survey_results.questionnaire_show.see_results
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

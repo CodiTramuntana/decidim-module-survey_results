@@ -1,8 +1,8 @@
 <div class="answers-chart">
   <canvas
     class="<%= results.question_type %>-chart"
-    data-labels="<%= labels %>"
-    data-datasets="<%= datasets.to_json %>"
+    data-labels="<%= results.x_labels %>"
+    data-datasets="<%= results.datasets.to_json %>"
   ></canvas>
 </div>
 
@@ -13,7 +13,7 @@
     <th>Cantidad</th>
   </thead>
   <tbody>
-    <% labels.zip(datasets.first[:data]).each do |label, count| %>
+    <% results.x_labels.zip(results.datasets.first[:data]).each do |label, count| %>
       <tr>
         <td><%= label %></td>
         <td><%= results.answers_percentage(count) %>%</td>
