@@ -1,8 +1,14 @@
 <div class="survey-results-wrapper">
   <div class="row columns">
+    <div class="alert-survey">
+      <span>Estàs veient els resultats de l'enquesta</span>
+    </div>
     <h2 class="section-heading"><%= translated_attribute @full_questionnaire.title %></h2>
-    <div class="section">
-      <h2><%= t(".num_participants", count: @full_questionnaire.total_participants) %></h2></div>
+    <div class="section-participants">
+      <%= render_participants_icon %>
+
+      <p><%= t(".num_participants", count: @full_questionnaire.total_participants) %></p>
+    </div>
     <%= render partial: "questions", locals: { full_questionnaire: @full_questionnaire } %>
   </div>
 </div>

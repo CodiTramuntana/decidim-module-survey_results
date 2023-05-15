@@ -17,7 +17,7 @@ es:
         questions:
           question: Pregunta
         show:
-          num_participants: Un total de %{count} usuarios han respondido la encuesta
+          num_participants: "%{count} usuarios han respondido"
   survey_results:
     question_results:
       answered: Han respondido
