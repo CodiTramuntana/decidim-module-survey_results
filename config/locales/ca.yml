@@ -15,9 +15,11 @@ ca:
             percentage: Percentatge
             quantity: Quantitat
         questions:
-          question: Pregunta
+          conditioned_question: "Pregunta %{number} (PREGUNTA CONDICIONADA)"
+          question: "Pregunta %{number}"
         show:
-          num_participants: Un total de %{count} usuaris han respost l'enquesta
+          alert: Estàs veient els resultats de l'enquesta.
+          num_participants: "%{count} participants han respost l'enquesta"
   survey_results:
     question_results:
       answered: Han respost

@@ -1,35 +1,23 @@
-<% full_questionnaire.questions.each.with_index do |question, idx| %>
-  <% if question.question_type == "separator" %>
-    <div class="answers-results">
+<% idx = 1 %>
+
+<% full_questionnaire.pages.each do |page| %>
+  <div class="question-box">
+    <% page.each do |question| %>
+      <div class="question-number">
+        <% if conditioned_question?(question) %>
+          <%= image_pack_tag "media/images/condition_question.png" %>
+          <span><%= t(".conditioned_question", number: idx) %></span>
+        <% else %>
+          <span><%= t(".question", number: idx) %></span>
+        <% end %>
+        <% idx += 1 %>
+      </div>
+
+      <div class="question-title">
+        <p><%= translated_attribute question.body %><p>
+      </div>
+
       <%= render_question_results(full_questionnaire, question) %>
-    </div>
-  <% elsif question.question_type == "long_answer" %>
-    <div class="charts-wrapper pie-chart-wrapper">
-      <% unless question.question_type == "separator" %>
-        <p class="question-number"><%= t(".question") %> <%= idx + 1 %></p>
-      <% end %>
-      <div class="question-chart">
-        <div class="question-title">
-          <p><%= translated_attribute question.body %><p>
-        </div>
-        <div class="answers-results">
-          <%= render_question_results(full_questionnaire, question) %>
-        </div>
-      </div>
-    </div>
-  <% else %>
-    <div class="charts-wrapper">
-      <% unless question.question_type == "separator" %>
-        <p class="question-number"><%= t(".question") %> <%= idx + 1 %></p>
-      <% end %>
-      <div class="question-chart">
-        <div class="question-title">
-          <p><%= translated_attribute question.body %><p>
-        </div>
-        <div class="answers-results">
-          <%= render_question_results(full_questionnaire, question) %>
-        </div>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 <% end %>

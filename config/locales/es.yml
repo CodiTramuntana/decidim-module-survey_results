@@ -15,9 +15,11 @@ es:
             percentage: Porcentaje
             quantity: Cantidad
         questions:
-          question: Pregunta
+          conditioned_question: "Pregunta %{number} (PREGUNTA CONDICIONADA)"
+          question: "Pregunta %{number}"
         show:
-          num_participants: "%{count} usuarios han respondido"
+          alert: Estas viendo los resultados de la encuesta.
+          num_participants: "%{count} participantes han respondido"
   survey_results:
     question_results:
       answered: Han respondido
