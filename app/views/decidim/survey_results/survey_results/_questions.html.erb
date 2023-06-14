@@ -3,19 +3,24 @@
 <% full_questionnaire.pages.each do |page| %>
   <div class="question-box">
     <% page.each do |question| %>
-      <div class="question-number">
-        <% if conditioned_question?(question) %>
-          <%= image_pack_tag "media/images/condition_question.png" %>
-          <span><%= t(".conditioned_question", number: idx) %></span>
-        <% else %>
-          <span><%= t(".question", number: idx) %></span>
-        <% end %>
-        <% idx += 1 %>
-      </div>
+      <% unless title_and_description_question?(question) %>
+        <div class="question-number">
+          <% if conditioned_question?(question) %>
+            <%= image_pack_tag "media/images/condition_question.png" %>
+            <span><%= t(".conditioned_question", number: idx) %></span>
+          <% else %>
+            <span><%= t(".question", number: idx) %></span>
+          <% end %>
+          <% idx += 1 %>
+        </div>
+      <% end %>
 
-      <div class="question-title">
-        <p><%= translated_attribute question.body %><p>
+      <div class="question-title <%= 'big-title' if title_and_description_question?(question) %>">
+        <span><%= translated_attribute question.body %><span>
       </div>
+      <% if title_and_description_question?(question) %>
+        <p class="subtitle"><%= ActionView::Base.full_sanitizer.sanitize(translated_attribute(question.description)) %></p>
+      <% end %>
 
       <%= render_question_results(full_questionnaire, question) %>
     <% end %>

@@ -21,7 +21,11 @@ module Decidim
       def conditioned_question?(question)
         Decidim::Forms::DisplayCondition.where(decidim_question_id: question).present?
       end
-      
+
+      def title_and_description_question?(question)
+        question.question_type == "title_and_description"
+      end
+
       def render_participants_icon
         svg = <<EOST
           <svg width="20px" height="15px" viewBox="0 0 20 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">

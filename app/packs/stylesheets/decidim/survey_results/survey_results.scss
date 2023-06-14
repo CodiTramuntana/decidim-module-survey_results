@@ -9,12 +9,14 @@
     padding-left: 32px;
     border-left: 4px solid #9595c7;
     margin-bottom: 28px;
+    font-weight: bold;
   }
 
   .section-heading {
     margin: 0;
     padding: 24px 0 20px 0;
     font-size: 20px;
+    font-weight: bold;
 
     &::before {
       margin-right: 30px;
@@ -26,6 +28,7 @@
     align-items: baseline;
     gap: 12px;
     margin-bottom: 30px;
+    font-weight: bold;
 
     p {
       text-transform: uppercase;
@@ -54,10 +57,28 @@
         object-fit: contain;
         margin-right: 8px;
       }
+
+      span {
+        font-weight: bold;
+      }
     }
 
     .question-title {
       font-size: 20px;
+    }
+
+    .big-title,
+    .subtitle {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .subtitle {
+      font-size: 14px;
+    }
+
+    .big-title {
+      margin-bottom: 8px;
     }
 
     table {
