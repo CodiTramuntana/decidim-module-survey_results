@@ -18,9 +18,6 @@
       <div class="question-title <%= 'big-title' if title_and_description_question?(question) %>">
         <span><%= translated_attribute question.body %><span>
       </div>
-      <% if title_and_description_question?(question) %>
-        <p class="subtitle"><%= ActionView::Base.full_sanitizer.sanitize(translated_attribute(question.description)) %></p>
-      <% end %>
 
       <%= render_question_results(full_questionnaire, question) %>
     <% end %>

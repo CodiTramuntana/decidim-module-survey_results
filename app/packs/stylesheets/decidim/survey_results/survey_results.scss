@@ -9,7 +9,6 @@
     padding-left: 32px;
     border-left: 4px solid #9595c7;
     margin-bottom: 28px;
-    font-weight: bold;
   }
 
   .section-heading {
@@ -28,10 +27,8 @@
     align-items: baseline;
     gap: 12px;
     margin-bottom: 30px;
-    font-weight: bold;
 
     p {
-      text-transform: uppercase;
       font-size: 14px;
     }
 
@@ -67,13 +64,12 @@
       font-size: 20px;
     }
 
-    .big-title,
-    .subtitle {
+    .big-title {
       text-transform: uppercase;
       font-weight: bold;
     }
 
-    .subtitle {
+    .description {
       font-size: 14px;
     }
 

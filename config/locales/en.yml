@@ -15,11 +15,18 @@ en:
             percentage: Percentage
             quantity: Quantity
         questions:
-          conditioned_question: "Question %{number} (CONDITIONED QUESTION)"
-          question: "Question %{number}"
+          conditioned_question: Question %{number} (CONDITIONED QUESTION)
+          question: Question %{number}
         show:
           alert: You are viewing the survey results.
-          num_participants: A total of %{count} have answered the survey
+          num_participants:
+            one: 1 participants
+            other: "%{count} participants"
+            zero: No participants
+          num_participants_description:
+            one: has answered the survey
+            other: they have answered the survey
+            zero: has answered the survey
   survey_results:
     question_results:
       answered: Answered
