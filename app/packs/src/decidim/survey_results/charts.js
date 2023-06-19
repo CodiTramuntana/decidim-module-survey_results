@@ -71,6 +71,7 @@ function simpleBarsChart(ctx, dataset) {
         label: dataset['label'],
         data: dataset['data'],
         borderWidth: 1,
+        minBarLength: 1,
       }]
     },
     options: {

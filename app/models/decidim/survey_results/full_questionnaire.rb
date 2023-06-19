@@ -18,6 +18,23 @@ module Decidim
         @questions ||= Decidim::Forms::Question.includes([:matrix_rows, :answer_options]).where(questionnaire: questionnaire).order(:position, :id)
       end
 
+      def pages
+        pages = []
+        current_page = []
+        pages << current_page
+
+        questions.each do |question|
+          if question.question_type != "separator"
+            current_page << question
+          else
+            current_page = []
+            pages << current_page
+          end
+        end
+
+        pages
+      end
+
       def participants
         @participants ||= ::Decidim::Forms::QuestionnaireParticipants.new(questionnaire).participants
       end

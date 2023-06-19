@@ -2,7 +2,6 @@ export function normalizeLabels(labels) {
   labels.forEach((label, index) => {
     if (label.length > 28) {
       let newLabel = splitLargeLabel(label);
-      console.log(newLabel)
       labels[index] = newLabel
     }
   })

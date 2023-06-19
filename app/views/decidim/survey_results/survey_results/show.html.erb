@@ -1,8 +1,17 @@
 <div class="survey-results-wrapper">
   <div class="row columns">
+    <div class="alert-survey">
+      <span><%= t(".alert") %></span>
+    </div>
     <h2 class="section-heading"><%= translated_attribute @full_questionnaire.title %></h2>
-    <div class="section">
-      <h2><%= t(".num_participants", count: @full_questionnaire.total_participants) %></h2></div>
+    <div class="section-participants">
+      <%= render partial: "participants_icon" %>
+
+      <span>
+        <b><%= t(".num_participants", count: @full_questionnaire.total_participants) %></b>
+        <%= t(".num_participants_description", count: @full_questionnaire.total_participants) %>
+      </span>
+    </div>
     <%= render partial: "questions", locals: { full_questionnaire: @full_questionnaire } %>
   </div>
 </div>
