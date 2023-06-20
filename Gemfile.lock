@@ -174,7 +174,7 @@ GIT
 PATH
   remote: .
   specs:
-    decidim-survey_results (0.0.1)
+    decidim-survey_results (0.0.2)
       decidim-core (>= 0.27.2)
       decidim-forms (>= 0.27.2)
       decidim-surveys (>= 0.27.2)
