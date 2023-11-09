@@ -10,8 +10,8 @@ module Decidim
         else
           results= Results.for(full_questionnaire, question)
           render partial: results.partial_name, locals: {
-            full_questionnaire:,
-            results:,
+            full_questionnaire: full_questionnaire,
+            results: results,
             labels: results.x_labels,
             datasets: results.datasets
           }

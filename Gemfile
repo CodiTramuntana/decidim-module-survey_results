@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-gem "decidim", git: "https://github.com/decidim/decidim", tag: "v0.27.2"
+gem "decidim", git: "https://github.com/decidim/decidim", tag: "v0.26.8"
 gem "decidim-survey_results", path: "."
 
 gem "puma", ">= 4.3"
@@ -16,7 +16,7 @@ gem "psych", "< 4"
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
-  gem "decidim-dev", git: "https://github.com/decidim/decidim", tag: "v0.27.2"
+  gem "decidim-dev", git: "https://github.com/decidim/decidim", tag: "v0.26.8"
   gem 'i18n-tasks'
 end
 
