@@ -5,7 +5,13 @@ WARNING: This module is in Beta, use it at your own risk.
 
 ## Usage
 
-SurveyResults will be available as a Component for a Participatory Space.
+This feature is only available for the survey component. It can be activated from the component configuration with the check "Publish results at survey end".
+
+![Component settings](screenshots/settings.png)
+
+If checked, when the survey ends, participants and users will be shown a link to the results page with one chart for each question.
+
+![Public view](screenshots/public_view.png)
 
 ## Installation
 
